@@ -26,8 +26,8 @@ android {
         versionName = "1.0"
     }
 
-    // Output APK named "PlexLibraryAndroidTV-<buildtype>.apk".
-    base.archivesName.set("PlexLibraryAndroidTV")
+    // Output APK named "PlexAndroidTVWidget-<buildtype>.apk".
+    base.archivesName.set("PlexAndroidTVWidget")
 
     signingConfigs {
         if (keystorePropsFile.exists()) {

@@ -2,12 +2,12 @@
 
 ## Simple description (tagline)
 
-> **Plex Library** — an Android TV home-screen widget that shows your Plex movies & TV shows
-> and plays them in the Plex app.
+> **Plex Android TV Widget** — shows your Plex movies & TV shows on the home screen and
+> plays them in the Plex app.
 
 ## Post (paste-ready)
 
-**Plex Library — an Android TV home-screen widget for your Plex library** 🎬📺
+**Plex Android TV Widget — your Plex library on the Android TV home screen** 🎬📺
 
 Hey everyone! I made a small open-source Android TV app that puts your **Plex** movies and
 TV shows right on the TV **home screen** as two channels, and plays them in the **Plex** app.
@@ -28,7 +28,7 @@ English + Ukrainian UI.
 
 It's **GPLv3** — anyone interested is welcome to take the source and adapt it to their own needs.
 
-GitHub: https://github.com/Frostoman/plex-library-tv-widget
+GitHub: https://github.com/Frostoman/plex-androidtv-widget
 
 **Pray for Ukraine!** 💙💛 🇺🇦
 
@@ -38,4 +38,4 @@ Made a tiny open-source **Android TV** app: it shows your **Plex** movies & TV s
 screen and plays them in the Plex app — movies play instantly, shows resume the first unwatched
 episode. Built it for myself, but maybe it's useful to others too. Heads up: **I'm not a
 programmer — made it entirely with Claude Code.** GPLv3, source open for anyone to adapt.
-GitHub: https://github.com/Frostoman/plex-library-tv-widget 🎬
+GitHub: https://github.com/Frostoman/plex-androidtv-widget 🎬

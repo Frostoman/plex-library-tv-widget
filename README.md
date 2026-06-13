@@ -1,4 +1,4 @@
-# Plex Library — Android TV home-screen channels for your Plex library
+# Plex Android TV Widget
 
 A lightweight **Android TV** app that puts your **[Plex](https://www.plex.tv/)** library on the home
 screen as **two channels** — one for **Movies**, one for **TV Shows**. Selecting a movie **plays it
@@ -79,9 +79,9 @@ rewrites the package on intents it fires itself, so the trampoline re-issues the
 
 ## Install
 
-1. Download the latest **`PlexLibraryAndroidTV-x.y.apk`** from the [Releases](../../releases) page.
+1. Download the latest **`PlexAndroidTVWidget-x.y.apk`** from the [Releases](../../releases) page.
 2. Sideload it onto your Android TV, either:
-   - **ADB:** `adb connect <TV-IP>:5555` then `adb install PlexLibraryAndroidTV-x.y.apk`, or
+   - **ADB:** `adb connect <TV-IP>:5555` then `adb install PlexAndroidTVWidget-x.y.apk`, or
    - **USB / file manager:** copy the APK to the TV and open it (enable "install from unknown sources").
 
 ## Setup
@@ -106,7 +106,7 @@ gradlew.bat assembleDebug
 ./gradlew assembleDebug
 ```
 
-The APK is produced at `app/build/outputs/apk/debug/PlexLibraryAndroidTV-debug.apk`.
+The APK is produced at `app/build/outputs/apk/debug/PlexAndroidTVWidget-debug.apk`.
 Open the project in **Android Studio** for the easiest setup (it bundles a JDK).
 
 To build a **signed release**, create a `keystore.properties` at the repo root (it's gitignored):

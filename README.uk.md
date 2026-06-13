@@ -1,4 +1,4 @@
-# Бібліотека Plex — канали на головному екрані Android TV для вашої бібліотеки Plex
+# Plex Android TV Widget
 
 Легкий додаток для **Android TV**, що виводить вашу бібліотеку **[Plex](https://www.plex.tv/)** на
 головний екран у вигляді **двох каналів** — один для **Фільмів**, один для **Серіалів**. Вибір
@@ -81,9 +81,9 @@
 
 ## Встановлення
 
-1. Завантажте останній **`PlexLibraryAndroidTV-x.y.apk`** зі сторінки [Releases](../../releases).
+1. Завантажте останній **`PlexAndroidTVWidget-x.y.apk`** зі сторінки [Releases](../../releases).
 2. Встановіть на Android TV одним зі способів:
-   - **ADB:** `adb connect <IP-TV>:5555`, потім `adb install PlexLibraryAndroidTV-x.y.apk`, або
+   - **ADB:** `adb connect <IP-TV>:5555`, потім `adb install PlexAndroidTVWidget-x.y.apk`, або
    - **USB / файловий менеджер:** скопіюйте APK на TV і відкрийте (увімкніть «встановлення з невідомих джерел»).
 
 ## Налаштування
@@ -107,7 +107,7 @@ gradlew.bat assembleDebug
 ./gradlew assembleDebug
 ```
 
-APK з'явиться за шляхом `app/build/outputs/apk/debug/PlexLibraryAndroidTV-debug.apk`.
+APK з'явиться за шляхом `app/build/outputs/apk/debug/PlexAndroidTVWidget-debug.apk`.
 Найпростіше відкрити проєкт у **Android Studio** (там уже є JDK).
 
 Для **підписаної release-збірки** створіть `keystore.properties` у корені репозиторію (він у gitignore):
