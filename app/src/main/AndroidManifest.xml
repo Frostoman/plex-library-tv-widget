@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <!-- This app targets Android TV. Touchscreen is not required. -->
+    <uses-feature
+        android:name="android.hardware.touchscreen"
+        android:required="false" />
+    <uses-feature
+        android:name="android.software.leanback"
+        android:required="true" />
+
+    <!-- We query whether the Plex app is installed (package visibility, API 30+). -->
+    <queries>
+        <package android:name="com.plexapp.android" />
+    </queries>
+
+    <application
+        android:name=".App"
+        android:allowBackup="true"
+        android:banner="@drawable/app_banner"
+        android:icon="@drawable/app_banner"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:usesCleartextTraffic="true"
+        android:theme="@style/Theme.PlexWidget">
+
+        <!-- Launcher entry: shown in the Android TV "Apps" row -->
+        <activity
+            android:name=".ui.MainActivity"
+            android:exported="true"
+            android:screenOrientation="landscape">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LEANBACK_LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Plex account link flow (plex.tv/link PIN) -->
+        <activity
+            android:name=".ui.PlexLinkActivity"
+            android:exported="false"
+            android:theme="@style/Theme.PlexWidget.Pair"
+            android:screenOrientation="landscape" />
+
+        <activity
+            android:name=".ui.RenameChannelActivity"
+            android:exported="false"
+            android:theme="@style/Theme.PlexWidget.Pair"
+            android:screenOrientation="landscape" />
+
+        <activity
+            android:name=".ui.SelectItemsActivity"
+            android:exported="false"
+            android:theme="@style/Theme.PlexWidget.GuidedStep"
+            android:screenOrientation="landscape" />
+
+        <activity
+            android:name=".ui.SortActivity"
+            android:exported="false"
+            android:theme="@style/Theme.PlexWidget.GuidedStep"
+            android:screenOrientation="landscape" />
+
+        <activity
+            android:name=".ui.ServerPickerActivity"
+            android:exported="false"
+            android:theme="@style/Theme.PlexWidget.GuidedStep"
+            android:screenOrientation="landscape" />
+
+        <!-- Invisible trampoline launched by home-screen cards; resolves + re-issues the Plex intent -->
+        <activity
+            android:name=".ui.OpenItemActivity"
+            android:exported="true"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <!-- Exposes cached poster PNGs to the TV launcher as content:// URIs -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.posters"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <!-- Background sync of the libraries + posters into the home-screen channels -->
+        <receiver
+            android:name=".sync.BootReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.media.tv.action.INITIALIZE_PROGRAMS" />
+            </intent-filter>
+        </receiver>
+
+    </application>
+</manifest>

@@ -1,0 +1,24 @@
+.gradle/
+build/
+/local.properties
+.idea/
+*.iml
+.DS_Store
+/captures
+.externalNativeBuild
+.cxx
+
+# Reference-only GPL sources from moonlight-android (not part of this project)
+/_reference/
+# Debug logs captured during development
+logcat_*.txt
+build_log.txt
+# Built APK archives — distribute via GitHub Releases instead of committing binaries
+/releases/
+# Tooling caches / local session config
+/.kotlin/
+/.claude/
+# Release signing — keep secrets out of the public repo
+*.keystore
+*.jks
+keystore.properties

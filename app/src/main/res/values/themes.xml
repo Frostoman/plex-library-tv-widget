@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Leanback browse theme for the in-app library screen -->
+    <style name="Theme.PlexWidget" parent="Theme.Leanback" />
+
+    <!-- Plain themed theme for the link / rename screens -->
+    <style name="Theme.PlexWidget.Pair" parent="Theme.AppCompat.NoActionBar" />
+
+    <!-- Checkbox list (item selection) -->
+    <style name="Theme.PlexWidget.GuidedStep" parent="Theme.Leanback.GuidedStep" />
+</resources>

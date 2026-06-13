@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 320x180 TV banner — Plex dark with the signature gold accent -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:angle="135"
+                android:startColor="#1A1A1A"
+                android:endColor="#282A2D" />
+        </shape>
+    </item>
+    <item
+        android:width="56dp"
+        android:height="56dp"
+        android:gravity="center_vertical|start"
+        android:left="24dp">
+        <shape android:shape="oval">
+            <solid android:color="#E5A00D" />
+        </shape>
+    </item>
+</layer-list>

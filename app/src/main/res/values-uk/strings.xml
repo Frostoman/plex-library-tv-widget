@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ukrainian / Українська -->
+<resources>
+    <string name="app_name">Бібліотека Plex</string>
+    <string name="browse_title">Бібліотека Plex</string>
+    <string name="row_movies">Фільми</string>
+    <string name="row_shows">Серіали</string>
+    <string name="row_settings">Налаштування</string>
+
+    <string name="action_link">Підключити акаунт Plex</string>
+    <string name="action_resync">Оновити бібліотеку</string>
+    <string name="action_unlink">Відключити акаунт</string>
+    <string name="action_rename">Назви віджетів</string>
+    <string name="action_select_movies">Вибрати фільми</string>
+    <string name="action_select_shows">Вибрати серіали</string>
+    <string name="action_sort">Сортування</string>
+    <string name="action_server">Сервер</string>
+
+    <string name="server_title">Виберіть сервер Plex</string>
+    <string name="server_loading">Завантаження серверів…</string>
+    <string name="server_desc">Оберіть, який сервер показувати.</string>
+    <string name="server_local">У цій мережі</string>
+    <string name="server_remote">Віддалений</string>
+
+    <string name="sort_title">Порядок сортування</string>
+    <string name="sort_desc">Як упорядковані тайтли в обох віджетах.</string>
+    <string name="sort_recent">Останні переглянуті</string>
+    <string name="sort_alpha">По алфавіту</string>
+
+    <string name="select_movies_title">Фільми у віджеті</string>
+    <string name="select_shows_title">Серіали у віджеті</string>
+    <string name="select_items_desc">Відмічені елементи показуються на головному екрані.</string>
+
+    <string name="rename_title">Назви на головному екрані</string>
+    <string name="rename_hint_movies">Назва каналу «Фільми»</string>
+    <string name="rename_hint_shows">Назва каналу «Серіали»</string>
+    <string name="rename_save">Зберегти</string>
+    <string name="rename_saved">Збережено</string>
+
+    <string name="link_title">Підключіть акаунт Plex</string>
+    <string name="link_step1">1. На телефоні чи ПК відкрийте:</string>
+    <string name="link_url">plex.tv/link</string>
+    <string name="link_step2">2. Введіть цей код:</string>
+    <string name="link_waiting">Очікую, поки ви введете код…</string>
+    <string name="link_success">Підключено! Завантажую бібліотеку…</string>
+    <string name="link_expired">Код протермінувався. Натисніть «Повторити».</string>
+    <string name="link_no_server">На цьому акаунті не знайдено сервера Plex Media Server.</string>
+    <string name="link_retry">Повторити</string>
+    <string name="link_failed">Не вдалося підключити: %1$s</string>
+
+    <string name="channel_name_movies">Фільми</string>
+    <string name="channel_name_shows">Серіали</string>
+
+    <string name="not_linked">Акаунт не підключено. Натисніть, щоб підключити Plex.</string>
+    <string name="plex_missing">Не встановлено застосунок Plex. Встановіть com.plexapp.android.</string>
+
+    <string name="refresh_tile">Оновити</string>
+    <string name="refresh_started">Оновлюю бібліотеку…</string>
+
+    <string name="toast_unlinked">Акаунт відключено</string>
+    <string name="toast_synced">Синхронізовано: фільмів %1$d, серіалів %2$d</string>
+    <string name="error_network">помилка мережі</string>
+</resources>

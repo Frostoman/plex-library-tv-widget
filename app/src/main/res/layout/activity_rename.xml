@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="#1A1A1A"
+    android:padding="48dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/rename_title"
+        android:textColor="#FFFFFF"
+        android:textSize="28sp"
+        android:layout_marginBottom="24dp" />
+
+    <TextView
+        android:layout_width="420dp"
+        android:layout_height="wrap_content"
+        android:text="@string/rename_hint_movies"
+        android:textColor="#CCCCCC"
+        android:textSize="14sp" />
+
+    <EditText
+        android:id="@+id/moviesInput"
+        android:layout_width="420dp"
+        android:layout_height="wrap_content"
+        android:textColor="#FFFFFF"
+        android:inputType="text"
+        android:importantForAutofill="no"
+        android:layout_marginBottom="20dp" />
+
+    <TextView
+        android:layout_width="420dp"
+        android:layout_height="wrap_content"
+        android:text="@string/rename_hint_shows"
+        android:textColor="#CCCCCC"
+        android:textSize="14sp" />
+
+    <EditText
+        android:id="@+id/showsInput"
+        android:layout_width="420dp"
+        android:layout_height="wrap_content"
+        android:textColor="#FFFFFF"
+        android:inputType="text"
+        android:importantForAutofill="no" />
+
+    <Button
+        android:id="@+id/saveButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/rename_save" />
+</LinearLayout>
