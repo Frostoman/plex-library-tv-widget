@@ -54,6 +54,11 @@ class PlexStore(context: Context) {
         get() = SortOrder.fromKey(prefs.getString(KEY_SORT, null))
         set(v) = prefs.edit().putString(KEY_SORT, v.name).apply()
 
+    /** Epoch ms of the last time we launched Plex — used to pick a warm-up delay. */
+    var lastPlexLaunchAt: Long
+        get() = prefs.getLong(KEY_LAST_LAUNCH, 0L)
+        set(v) = prefs.edit().putLong(KEY_LAST_LAUNCH, v).apply()
+
     // ---- cached items per kind ----
 
     fun saveItems(kind: MediaKind, items: List<PlexItem>) {
@@ -133,5 +138,6 @@ class PlexStore(context: Context) {
         const val KEY_SERVER_URI = "server_uri"
         const val KEY_SERVER_TOKEN = "server_token"
         const val KEY_SORT = "sort_order"
+        const val KEY_LAST_LAUNCH = "last_plex_launch"
     }
 }

@@ -8,6 +8,7 @@ import com.androidtv.plexwidget.model.PlexItem
 import com.androidtv.plexwidget.ui.MainActivity
 import com.androidtv.plexwidget.ui.OpenItemActivity
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.withContext
 
 /**
@@ -71,22 +72,34 @@ object PlexLauncher {
     }
 
     /**
-     * Fire a resolved Plex URI (scoped to the Plex package); on any failure fall back to
-     * launching the Plex app. Must run on the main thread. Returns false only if Plex is
-     * not installed.
+     * Launch the item in Plex, working around a cold-start race: if Plex isn't already
+     * running, an incoming deep link can arrive before Plex has finished starting
+     * (splash → user picker → server connection) and gets dropped — it lands on the Plex
+     * home without playing or marking progress. So we first bring Plex to the foreground,
+     * wait for it to settle, then fire the deep link. The wait is short if we launched
+     * Plex recently (likely still warm), longer otherwise. Call from a coroutine.
+     * Returns false only if Plex is not installed.
      */
-    fun launchUri(context: Context, uri: Uri?): Boolean {
+    suspend fun launchWithWarmup(context: Context, uri: Uri?): Boolean {
         if (!isPlexInstalled(context)) return false
+        val pm = context.packageManager
+        val store = App.from(context).plexStore
+
+        // Bring Plex up (cold-start it, or surface it if already running).
+        pm.getLaunchIntentForPackage(PLEX_PACKAGE)?.let {
+            runCatching { context.startActivity(it.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)) }
+        }
+
         if (uri != null) {
+            val warm = System.currentTimeMillis() - store.lastPlexLaunchAt < WARM_WINDOW_MS
+            delay(if (warm) WARM_DELAY_MS else COLD_DELAY_MS)
             val view = Intent(Intent.ACTION_VIEW, uri)
                 .setPackage(PLEX_PACKAGE)
                 .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-            if (runCatching { context.startActivity(view); true }.getOrDefault(false)) return true
+            runCatching { context.startActivity(view) }
         }
-        val launch = context.packageManager.getLaunchIntentForPackage(PLEX_PACKAGE) ?: return false
-        return runCatching {
-            context.startActivity(launch.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)); true
-        }.getOrDefault(false)
+        store.lastPlexLaunchAt = System.currentTimeMillis()
+        return true
     }
 
     /**
@@ -111,4 +124,9 @@ object PlexLauncher {
     /** Fallback target so a card is never a dead end. */
     fun fallbackIntent(context: Context): Intent =
         Intent(context, MainActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+
+    // Cold start settles in ~5s on a typical Android TV; warm just needs Plex foregrounded.
+    private const val COLD_DELAY_MS = 6000L
+    private const val WARM_DELAY_MS = 1500L
+    private const val WARM_WINDOW_MS = 5 * 60 * 1000L
 }

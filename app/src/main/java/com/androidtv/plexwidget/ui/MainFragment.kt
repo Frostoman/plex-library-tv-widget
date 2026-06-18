@@ -97,9 +97,10 @@ class MainFragment : BrowseSupportFragment() {
         if (!PlexLauncher.isPlexInstalled(requireContext())) {
             toast(getString(R.string.plex_missing)); return
         }
+        val ctx = requireContext().applicationContext
         lifecycleScope.launch {
-            val uri = PlexLauncher.playUri(requireContext().applicationContext, item)
-            PlexLauncher.launchUri(requireContext(), uri)
+            val uri = PlexLauncher.playUri(ctx, item)
+            PlexLauncher.launchWithWarmup(ctx, uri)
         }
     }
 

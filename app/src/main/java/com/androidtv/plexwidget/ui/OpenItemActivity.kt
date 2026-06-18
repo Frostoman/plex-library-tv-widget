@@ -42,10 +42,11 @@ class OpenItemActivity : FragmentActivity() {
             slug = intent.getStringExtra(EXTRA_SLUG),
             lastViewedAt = null,
         )
+        val appCtx = applicationContext
         lifecycleScope.launch {
-            val uri = PlexLauncher.playUri(this@OpenItemActivity, item)
-            if (!PlexLauncher.launchUri(this@OpenItemActivity, uri)) {
-                runCatching { startActivity(PlexLauncher.fallbackIntent(this@OpenItemActivity)) }
+            val uri = PlexLauncher.playUri(appCtx, item)
+            if (!PlexLauncher.launchWithWarmup(appCtx, uri)) {
+                runCatching { startActivity(PlexLauncher.fallbackIntent(appCtx)) }
             }
             finish()
         }
