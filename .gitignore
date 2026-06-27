@@ -23,5 +23,13 @@ build_log.txt
 *.jks
 keystore.properties
 
-# Local backup of Claude Code chat history (contains secrets — never commit)
+# Source art â€” PSDs and the loose export PNGs at the repo root.
+# The built resources live under app/src/main/res, so these aren't needed in the repo.
+/psd/
+/app_banner.png
+/ic_launcher.png
+/ic_launcher_background.png
+/ic_launcher_foreground.png
+
+# Local backup of Claude Code chat history (contains secrets ï¿½ never commit)
 /_session-backup/
